@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:movies/presentation/widgett/alch_video.dart';
 import 'package:movies/presentation/widgett/popularmovie_widget.dart';
 import 'package:movies/presentation/widgett/trendingg_movies.dart';
 
@@ -19,41 +20,49 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 350,
-              width: MediaQuery.of(context).size.width,
-              decoration:const BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/alch.jpeg'),
-                )
+            GestureDetector(
+              child: Container(
+                height: 350,
+                width: MediaQuery.of(context).size.width,
+                decoration:const BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/alch.jpeg'),
+                  )
+                ),
               ),
+                onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>MyUrl()));
+                },
             ),
             const SizedBox(height: 15,),
 
-           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             children:  [
-               const Text('Most Popular',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: Colors.red,
-                  ),),
+           Container(
+             padding:const EdgeInsets.symmetric(horizontal: 10),
+             child: Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children:  [
+                 const Text('Most Popular',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.red,
+                    ),),
 
-               InkWell(
-                 child:const Text('See all',
-                   style: TextStyle(
-                     fontWeight: FontWeight.bold,
-                     fontSize: 16,
-                     color: Colors.red,
-                   ),),
-                 onTap: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SeeAll()));
-                 },
-               ),
+                 InkWell(
+                   child:const Text('See all',
+                     style: TextStyle(
+                       fontWeight: FontWeight.bold,
+                       fontSize: 16,
+                       color: Colors.red,
+                     ),),
+                   onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>SeeAll()));
+                   },
+                 ),
 
-             ],
+               ],
+             ),
            ),
             const SizedBox(height: 15,),
 
